@@ -77,7 +77,14 @@ $ roslaunch float32multiarray_to_pointcloud2 float32multiarray_to_pointcloud2.la
    - Type: int
    - Default value: "640"
    - Description: Width of the point cloud configured in the simulator
+   
+   
+Configuration of the system used
+--------------------------------
 
+* Ubuntu 18.04.4 (http://releases.ubuntu.com/18.04.4/)
+* ROS Melodic (http://wiki.ros.org/melodic/Installation/Ubuntu)
+* CoppeliaSim simulator V4_1_0 (https://www.coppeliarobotics.com/downloads)
 
 ![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig1.png)
 ![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig2.png)
