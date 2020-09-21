@@ -15,9 +15,6 @@ int height, width;
 float near_clip, far_clip, view_angle;
 
 
-
-
-
 void chatterCallback(const std_msgs::Float32MultiArray::ConstPtr& msg)
 {
         std::vector<float> depth_raw = msg->data;
@@ -39,6 +36,7 @@ void chatterCallback(const std_msgs::Float32MultiArray::ConstPtr& msg)
                 float depth = near_clip + scale * depth_raw[k];
                 float xyz[3] = {depth * x_scale[k], depth * y_scale[k], depth};
                 pcl::PointXYZRGB p;
+               
                 p.x = xyz[0];
                 p.y = xyz[1];
                 p.z = xyz[2];
@@ -48,8 +46,7 @@ void chatterCallback(const std_msgs::Float32MultiArray::ConstPtr& msg)
                 cloud->points.push_back(p);
             }
         }
-        //cloud->width = cloud->points.size();
-        //cloud->height = 1;
+  
         sensor_msgs::PointCloud2 output;
         pcl::toROSMsg(*cloud.get(),output );
         output.header.frame_id = frame_id;
@@ -59,7 +56,7 @@ void chatterCallback(const std_msgs::Float32MultiArray::ConstPtr& msg)
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "listener");
+  ros::init(argc, argv, "float32multiarray_to_pointcloud2");
   ros::NodeHandle n;
   
   //Get parameters

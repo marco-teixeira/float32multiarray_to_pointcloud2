@@ -6,9 +6,12 @@
         
         <arg name="near_clip" default= "0.001" />
         <arg name="far_clip" default= "3.5" />
-        <arg name="view_angle" default= "57" />
+        <arg name="view_angle" default= "90" />
         <arg name="height" default= "480" />
         <arg name="width" default= "640" />
+        
+        <!-- true or false -->
+         <arg name="open_rviz" default= "true" />
         
         
 	<node name="float32multiarray_to_pointcloud2" pkg="float32multiarray_to_pointcloud2" type="float32multiarray_to_pointcloud2" respawn="true" output="screen" >
@@ -22,4 +25,10 @@
 	        <param name="height" type="int" value="$(arg height)" />
 	        <param name="width" type="int" value="$(arg width)" />	
 	</node>
+	
+	<group if="$(arg open_rviz)">
+                 <node name="rviz" pkg="rviz" type="rviz" args="-d $(find float32multiarray_to_pointcloud2)/rviz_config/rviz.rviz" />
+        </group>
+	
+	
 </launch>
