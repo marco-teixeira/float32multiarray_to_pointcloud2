@@ -4,9 +4,9 @@
         <arg name="output_topic" default="/cloud_out" />
         <arg name="frame_id" default="/camera" />
         
-        <arg name="near_clip" default= "0.001" />
+        <arg name="near_clip" default= "0.01" />
         <arg name="far_clip" default= "3.5" />
-        <arg name="view_angle" default= "90" />
+        <arg name="view_angle" default= "57" />
         <arg name="height" default= "480" />
         <arg name="width" default= "640" />
         

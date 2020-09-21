@@ -6,7 +6,8 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 
-
+#define M_PI 3.14159265358979323846
+#define degreesToRadians(angleDegrees) (angleDegrees * M_PI / 180.0)
 
 ros::Publisher pub;
 std::string input_topic, output_topic, frame_id;
@@ -17,12 +18,14 @@ float near_clip, far_clip, view_angle;
 
 void chatterCallback(const std_msgs::Float32MultiArray::ConstPtr& msg)
 {
+        float view_angle_r ;
+        view_angle_r = degreesToRadians(view_angle);
         std::vector<float> depth_raw = msg->data;
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
 	unsigned int datalen = height * width;
         float scale = (far_clip - near_clip) / 1.0;
         std::vector<float> x_scale, y_scale;
-        float f = float(float(std::max(height, width)) / 2) / float(tan(view_angle  / 2)); 
+        float f = float(float(std::max(height, width)) / 2) / float(tan(view_angle_r  / 2)); 
         for (int j = 0; j < height; j++)
         {
             float y = (j - height / 2.0);

@@ -88,3 +88,5 @@ Configuration of the system used
 
 ![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig1.png)
 ![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig2.png)
+![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig3.png)
+![alt text](https://github.com/marco-teixeira/figures/blob/master/fig_float32multiarray_to_pointcloud2/fig4.png)
